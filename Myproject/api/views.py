@@ -53,7 +53,7 @@ class GenericAPIView(generics.GenericAPIView, mixins.ListModelMixin, mixins.Crea
     def delete(self, request, id):
         return self.destroy(request, id)
 
-#CRUD
+
 class ArticleAPIView(APIView):
     def get(self, request):
         articles = Article.objects.all()
