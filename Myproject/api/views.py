@@ -26,7 +26,7 @@ class ArticleViewSet(viewsets.ModelViewSet):
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
+"""Shortcut of below process"""
 class GenericAPIView(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin,
                      mixins.UpdateModelMixin, mixins.RetrieveModelMixin, mixins.DestroyModelMixin):
     serializer_class = ArticleSerializer
@@ -68,7 +68,7 @@ class ArticleAPIView(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
+#CRUD 
 class ArticleDetails(APIView):
     def get_object(self, id):
         try:
@@ -96,6 +96,7 @@ class ArticleDetails(APIView):
         return HttpResponse(status=status.HTTP_204_NO_CONTENT)
 
 
+#CRUD 
 @api_view(['GET', 'POST'])
 def article_list(request):
     if request.method == 'GET':
